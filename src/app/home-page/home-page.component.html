@@ -1,0 +1,29 @@
+<div class="page-container">
+  <!-- meals -->
+  <div class="column">
+    <app-meals-list
+      [isLoading]="isLoadingMeals"
+      [meals]="meals"
+      (deleteMeal)="onDeleteMeal($event)"
+    ></app-meals-list>
+  </div>
+
+  <!-- ingredients -->
+  <div class="column">
+    <!-- IngredientsListComponent expects two inputs [isLoading] & [ingredients] from HomePageComponent -->
+    <!-- Also, it is (emitting) or sending out a custom event
+      of type str (that is the name of the ingredient to be deleted) named (deleteIngredient) -->
+    <app-ingredients-list
+      [isLoading]="isLoadingIngredients"
+      [ingredients]="ingredients"
+      (deleteIngredient)="onDeleteIngredient($event)"
+    ></app-ingredients-list>
+
+    <!-- very involved WOW!!! -->
+    <a routerLink="/shopping-list">
+      <button class="shopping-list-button list-container full-width">
+        Generate Shopping List
+      </button>
+    </a>
+  </div>
+</div>
